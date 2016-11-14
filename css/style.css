@@ -1,0 +1,27 @@
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+#map-wrapper {
+    -webkit-transition: width 0.4s; /* Safari */
+    transition: width 0.4s;
+    background: cyan;
+}
+
+#map-wrapper, #content-main {
+    min-height: 200px;
+}
+
+#map {
+    min-height: 200px;
+    width: 100%;
+}
+
+
+#content-main {
+    background: moccasin;
+}

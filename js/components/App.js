@@ -1,54 +1,60 @@
-/**
- * Created by karol on 1§3.11.2016.
- */
 
-autoControl = {
-        modules: {
-            map: Map
+if (!autoControl.app)
+    autoControl.app = {};
+
+autoControl.app = {
+    jqueryMap: {
+        progressBarIndeterminate: $('#header-progress-indeterminate'),
+        progressBarDeterminate: $('#header-progress-determinate'),
+        progressBarDeterminate_Bar: $('#header-progress-determinate-bar'),
+        navbar: $('#main-navbar')
+    },
+
+    state: {
+        progressBarIndeterminateVisible: false,
+        progressBarDeterminateVisible: false
+    },
+
+    event: {
+        initModule: function () {
+            console.log("Init App component");
+            console.log("App", this);
+
+            window.onresize = autoControl.app.event.resize();
         },
 
-        jqueryMap: {
-            progressBarIndeterminate: $('#header-progress-indeterminate'),
-            progressBarDeterminate: $('#header-progress-determinate'),
-            progressBarDeterminate_Bar: $('#header-progress-determinate-bar')
-        },
+        resize: function () {
+            var navbar_height = autoControl.app.jqueryMap.navbar.height();
+            var elementsToChange = document.getElementsByClassName('height-full');
 
-        state: {
-            progressBarIndeterminateVisible: false,
-            progressBarDeterminateVisible: false
-        },
-
-        event: {
-            initModule: function () {
-                console.log("Init App component");
-                console.log("App", this);
-            }
-        },
-
-        action: {
-            showProgress: function (percentage) {
-                if (typeof percentage !== 'undefined') {
-                    autoControl.jqueryMap.progressBarDeterminate.show();
-                    autoControl.jqueryMap.progressBarDeterminate_Bar.css("width", percentage + "%");
-                    autoControl.state.progressBarDeterminateVisible = true;
-                }
-            },
-
-            hideProgress: function () {
-                autoControl.jqueryMap.progressBarDeterminate.hide();
-                autoControl.state.progressBarDeterminateVisible = false;
-            },
-
-            showProgressIndeterminate: function () {
-                if (typeof percentage !== 'undefined') {
-                    autoControl.jqueryMap.progressBarIndeterminate.show();
-                    autoControl.state.progressBarIndeterminateVisible = true;
-                }
-            },
-
-            hideProgressIndeterminate : function () {
-                autoControl.jqueryMap.progressBarIndeterminate.hide();
-                autoControl.state.progressBarIndeterminateVisible = false;
+            for (var i = 0; i < elementsToChange.length; i++) {
+                elementsToChange[i].style.height = window.innerHeight - navbar_height + "px";
             }
         }
-    };
+    },
+
+    action: {
+        showProgress: function (percentage) {
+            if (typeof percentage !== 'undefined') {
+                autoControl.app.jqueryMap.progressBarDeterminate.show();
+                autoControl.app.jqueryMap.progressBarDeterminate_Bar.css("width", percentage + "%");
+                autoControl.app.state.progressBarDeterminateVisible = true;
+            }
+        },
+
+        hideProgress: function () {
+            autoControl.app.jqueryMap.progressBarDeterminate.hide();
+            autoControl.app.state.progressBarDeterminateVisible = false;
+        },
+
+        showProgressIndeterminate: function () {
+            autoControl.app.jqueryMap.progressBarIndeterminate.show();
+            autoControl.app.state.progressBarIndeterminateVisible = true;
+        },
+
+        hideProgressIndeterminate: function () {
+            autoControl.app.jqueryMap.progressBarIndeterminate.hide();
+            autoControl.app.state.progressBarIndeterminateVisible = false;
+        }
+    }
+};

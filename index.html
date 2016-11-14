@@ -14,8 +14,6 @@
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">AutoControl</a>
             <ul class="right hide-on-med-and-down">
                 <!-- ToDo dodać elementy menu mobile <li id="panel-toogle-button" class="active"><a href="#">Panel</a></li> -->
-
-
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
@@ -27,24 +25,29 @@
         <div id="header-progress-indeterminate" class="progress" style="margin: 0; display: none">
             <div class="indeterminate"></div>
         </div>
-
         <div id="header-progress-determinate" class="progress" style="margin: 0; display: none">
             <div id="header-progress-determinate-bar" class="determinate" style="width: 0%"></div>
         </div>
     </nav>
 </header>
 
+<div class="row no-margin">
 
+    <div id="map-wrapper" class="right col s12 m7 no-padding height-full"></div>
+
+    <div id="content-main" class="left col s12 m5 height-full content-col scroll-content">
+
+    </div>
+</div>
+
+<script>autoControl = {};</script>
 <script type="text/javascript" src="js/lib/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/lib/materialize.min.js"></script>
 <script type="text/javascript" src="js/components/App.js"></script>
 <script>
     $(".button-collapse").sideNav();
 
-    autoControl.event.initModule();
-//    autoControl.jqueryMap.progressBarIndeterminate.show();
-//    autoControl.action.showProgress();
-    autoControl.action.showProgress(99);
+    autoControl.app.event.initModule();
 
 </script>
 </body>
