@@ -7,7 +7,7 @@ autoControl.map = {
         map: $('#map')
     },
 
-    servieces: {
+    services: {
         direction: null,
         directionDisplay: null,
         traffic: null,
@@ -18,30 +18,15 @@ autoControl.map = {
 
     event: {
         initModule: function () {
-            console.log("Map init");
+            // autoControl.map.services.direction = new google.maps.DirectionsService();
+            // autoControl.map.services.directionDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+            // autoControl.map.services.directionDisplay.setPanel(document.getElementById('route-display-text'));
+            // autoControl.map.services.traffic = new google.maps.TrafficLayer();
 
-            autoControl.map.servieces.direction = new google.maps.DirectionsService();
-
-
-            var auto1 = {lat: 54.519817, lng: 18.529571};
-
-            // autoControl.map.servieces.directionDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-            // autoControl.map.servieces.directionDisplay.setPanel(document.getElementById('route-display-text'));
-
-
-            autoControl.map.servieces.map = new google.maps.Map(document.getElementById('map'), {
-                center: auto1,
+            autoControl.map.services.map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 54.519817, lng: 18.529571},
                 zoom: 10
             });
-
-            // cars = new CarsInit();
-
-            autoControl.map.servieces.traffic = new google.maps.TrafficLayer();
-
-            // autoControl.map.servieces.map.addListener('click', function (e) {
-            //     route.setPoint(null, e.latLng.lat(), e.latLng.lng());
-            // });
-
-        }
+        },
     }
 };
