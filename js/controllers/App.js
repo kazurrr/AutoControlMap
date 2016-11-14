@@ -1,4 +1,3 @@
-
 if (!autoControl.app)
     autoControl.app = {};
 
@@ -20,10 +19,15 @@ autoControl.app = {
             console.log("Init App component");
             console.log("App", this);
 
-            window.onresize = autoControl.app.event.resize();
+            autoControl.app.event.resize();
+            $(window).resize(function () {
+                autoControl.app.event.resize()
+            });
         },
 
         resize: function () {
+            console.log("REsize");
+
             var navbar_height = autoControl.app.jqueryMap.navbar.height();
             var elementsToChange = document.getElementsByClassName('height-full');
 

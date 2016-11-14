@@ -33,7 +33,9 @@
 
 <div class="row no-margin">
 
-    <div id="map-wrapper" class="right col s12 m7 no-padding height-full"></div>
+    <div id="map-wrapper" class="right col s12 m7 no-padding height-full">
+        <div id="map" class="height-full z-depth-1"></div>
+    </div>
 
     <div id="content-main" class="left col s12 m5 height-full content-col scroll-content">
 
@@ -43,12 +45,15 @@
 <script>autoControl = {};</script>
 <script type="text/javascript" src="js/lib/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/lib/materialize.min.js"></script>
-<script type="text/javascript" src="js/components/App.js"></script>
+<script type="text/javascript" src="js/controllers/App.js"></script>
+<script type="text/javascript" src="js/controllers/Map.js"></script>
 <script>
     $(".button-collapse").sideNav();
 
     autoControl.app.event.initModule();
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhiBxCyHYRmsnZlEuvNKMxLWPWic2Pb-c&callback=autoControl.map.event.initModule"
+        async defer></script>
 </body>
 </html>
