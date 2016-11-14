@@ -16,9 +16,6 @@ autoControl.app = {
 
     event: {
         initModule: function () {
-            console.log("Init App component");
-            console.log("App", this);
-
             autoControl.app.event.resize();
             $(window).resize(function () {
                 autoControl.app.event.resize()
@@ -26,8 +23,6 @@ autoControl.app = {
         },
 
         resize: function () {
-            console.log("REsize");
-
             var navbar_height = autoControl.app.jqueryMap.navbar.height();
             var elementsToChange = document.getElementsByClassName('height-full');
 

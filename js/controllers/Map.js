@@ -14,7 +14,7 @@ autoControl.map = {
         map: null
     },
 
-    state: {},
+    cars: [],
 
     event: {
         initModule: function () {
@@ -27,6 +27,12 @@ autoControl.map = {
                 center: {lat: 54.519817, lng: 18.529571},
                 zoom: 10
             });
-        },
+
+            autoControl.map.cars[0] = new google.maps.Marker({
+                position: {lat: 54.519817, lng: 18.529571},
+                animation: google.maps.Animation.DROP,
+                map: autoControl.map.services.map
+            });
+        }
     }
 };
