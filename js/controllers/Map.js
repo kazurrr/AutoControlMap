@@ -33,6 +33,8 @@ autoControl.map = {
                 animation: google.maps.Animation.DROP,
                 map: autoControl.map.services.map
             });
+
+            autoControl.cars.event.initModule();
         }
     }
 };

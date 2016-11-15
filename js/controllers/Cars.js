@@ -2,13 +2,23 @@ if (!autoControl.cars)
     autoControl.cars = {};
 
 autoControl.cars = {
-        jqueryMap: {},
+    data: [],
 
-        state: {},
+    state: {},
 
-        event: {
-            initModule: function () {
-
-            }
+    event: {
+        initModule: function () {
+            $.getJSON("js/testResponses/allCars.json", function (data) {
+                autoControl.cars.data = data;
+                console.log("allCars", autoControl.cars.data);
+            });
         }
-    };
+    }
+};
+
+function Car(id, vin, brand, model) {
+    this.id = id;
+    this.vin = vin;
+    this.brand = brand;
+    this.model = model;
+}

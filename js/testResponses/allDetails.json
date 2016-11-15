@@ -1,0 +1,72 @@
+[
+  {
+    "DetailId": 1,
+    "CarId": 1,
+    "Speed": 150.0,
+    "Rpm": 2000.0,
+    "EngineLoad": 5.6,
+    "Voltage": 12.65,
+    "Lon": 78.231,
+    "Lat": 67.541
+  },
+  {
+    "DetailId": 2,
+    "CarId": 2,
+    "Speed": 135.5,
+    "Rpm": 2513.0,
+    "EngineLoad": 90.0,
+    "Voltage": 10.94,
+    "Lon": 98.331,
+    "Lat": 98.213
+  },
+  {
+    "DetailId": 3,
+    "CarId": 3,
+    "Speed": 16.0,
+    "Rpm": 1234.0,
+    "EngineLoad": 23.0,
+    "Voltage": 9.9,
+    "Lon": 56.901,
+    "Lat": 43.901
+  },
+  {
+    "DetailId": 4,
+    "CarId": 4,
+    "Speed": 56.9,
+    "Rpm": 2569.0,
+    "EngineLoad": 85.0,
+    "Voltage": 13.9,
+    "Lon": 56.9,
+    "Lat": 89.001
+  },
+  {
+    "DetailId": 5,
+    "CarId": 1,
+    "Speed": 132.0,
+    "Rpm": 2032.0,
+    "EngineLoad": 41.0,
+    "Voltage": 12.0,
+    "Lon": 32.0,
+    "Lat": 123.0
+  },
+  {
+    "DetailId": 6,
+    "CarId": 9,
+    "Speed": 100.0,
+    "Rpm": 2343.0,
+    "EngineLoad": 14.0,
+    "Voltage": 12.1,
+    "Lon": 74.23,
+    "Lat": 83.11
+  },
+  {
+    "DetailId": 7,
+    "CarId": 9,
+    "Speed": 100.0,
+    "Rpm": 2343.0,
+    "EngineLoad": 14.0,
+    "Voltage": 12.1,
+    "Lon": 74.23,
+    "Lat": 83.11
+  }
+]

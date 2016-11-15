@@ -2,13 +2,13 @@ if (!autoControl.backEnd)
     autoControl.backEnd = {};
 
 autoControl.backEnd = {
-        jqueryMap: {},
+    commands: {
+        allCars: function () {
+            var response = $.getJSON("js/testResponses/allCars.json", function () {
+                console.log("Success: get all cars");
+            });
 
-        state: {},
-
-        event: {
-            initModule: function () {
-
-            }
+            return response;
         }
-    };
+    }
+};

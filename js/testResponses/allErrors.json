@@ -1,0 +1,38 @@
+[
+  {
+    "ErrorId": 1,
+    "CarId": 1,
+    "ErrorCode": "asd",
+    "ErrorString": "asdasd"
+  },
+  {
+    "ErrorId": 3,
+    "CarId": 2,
+    "ErrorCode": "Ac45",
+    "ErrorString": "Lipa"
+  },
+  {
+    "ErrorId": 4,
+    "CarId": 3,
+    "ErrorCode": "JD34",
+    "ErrorString": "Kwas"
+  },
+  {
+    "ErrorId": 5,
+    "CarId": 4,
+    "ErrorCode": "LD89",
+    "ErrorString": "Nic"
+  },
+  {
+    "ErrorId": 6,
+    "CarId": 9,
+    "ErrorCode": "A45",
+    "ErrorString": "jashdlkajsd"
+  },
+  {
+    "ErrorId": 7,
+    "CarId": 1,
+    "ErrorCode": "DA45",
+    "ErrorString": "jhakjshdak"
+  }
+]
