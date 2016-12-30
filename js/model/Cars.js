@@ -10,7 +10,8 @@ autoControl.cars = {
         initModule: function () {
             $.getJSON("js/testResponses/allCars.json", function (data) {
                 autoControl.cars.data = data;
-                console.log("allCars", autoControl.cars.data);
+                // console.log("allCars", autoControl.cars.data);
+                autoControl.map.event.updateCars();
             });
         }
     }

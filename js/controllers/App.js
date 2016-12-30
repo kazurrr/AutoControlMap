@@ -20,6 +20,7 @@ autoControl.app = {
             $(window).resize(function () {
                 autoControl.app.event.resize()
             });
+            autoControl.app.event.initAppModules();
         },
 
         resize: function () {
@@ -29,10 +30,21 @@ autoControl.app = {
             for (var i = 0; i < elementsToChange.length; i++) {
                 elementsToChange[i].style.height = window.innerHeight - navbar_height + "px";
             }
+        },
+
+        initAppModules: function () {
+            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule);
         }
     },
 
     action: {
+        initExternalModule: function (name, initFunction) {
+            //ToDo add to menu
+            //ToDo add div
+
+            initFunction();
+        },
+
         showProgress: function (percentage) {
             if (typeof percentage !== 'undefined') {
                 autoControl.app.jqueryMap.progressBarDeterminate.show();

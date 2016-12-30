@@ -14,8 +14,6 @@ autoControl.map = {
         map: null
     },
 
-    cars: [],
-
     event: {
         initModule: function () {
             // autoControl.map.services.direction = new google.maps.DirectionsService();
@@ -35,6 +33,12 @@ autoControl.map = {
             });
 
             autoControl.cars.event.initModule();
+        },
+
+        updateCars: function () {
+            var newCars = autoControl.cars.data;
+
+            console.log(newCars);
         }
     }
 };

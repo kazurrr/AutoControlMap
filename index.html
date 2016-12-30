@@ -40,17 +40,60 @@
     </div>
 
     <div id="content-main" class="left col s12 m5 height-full content-col scroll-content">
+        <div id="cars-info-wrapper">
+            <h5>Informacje o pojazdach</h5>
+
+            <table class="bordered centered">
+                <thead>
+                <tr>
+                    <th data-field="id">Numer pojazdu</th>
+                    <th data-field="name">Model</th>
+                    <th data-field="price">Status</th>
+                    <th data-field="price">Akcje</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alan</td>
+                    <td>Jellybean</td>
+                    <td>Jellybean</td>
+                    <td>$3.76</td>
+                </tr>
+                <tr>
+                    <td>Jonathan</td>
+                    <td>Lollipop</td>
+                    <td>Lollipop</td>
+                    <td>$7.00</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
 
     </div>
 </div>
 
 <script>autoControl = {};</script>
+<!-- Load lib!-->
 <script type="text/javascript" src="js/lib/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/lib/materialize.min.js"></script>
+
+<!-- Load controllers!-->
 <script type="text/javascript" src="js/controllers/BackEnd.js"></script>
 <script type="text/javascript" src="js/controllers/App.js"></script>
 <script type="text/javascript" src="js/controllers/Map.js"></script>
-<script type="text/javascript" src="js/controllers/Cars.js"></script>
+<script type="text/javascript" src="js/controllers/CarsInfo.js"></script>
+
+<!-- Load models!-->
+<script type="text/javascript" src="js/model/Cars.js"></script>
+
 <script>
     $(".button-collapse").sideNav();
 
