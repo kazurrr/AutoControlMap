@@ -18,6 +18,10 @@ autoControl.map = {
         map: null
     },
 
+    data: {
+        markerImage: 'img/car.png'
+    },
+
     cars: [],
 
     event: {
@@ -30,12 +34,6 @@ autoControl.map = {
             autoControl.map.services.map = new google.maps.Map(autoControl.map.jsMap.map, {
                 center: {lat: 54.519817, lng: 18.529571},
                 zoom: 10
-            });
-
-            autoControl.map.cars[0] = new google.maps.Marker({
-                position: {lat: 54.519817, lng: 18.529571},
-                animation: google.maps.Animation.DROP,
-                map: autoControl.map.services.map
             });
 
             autoControl.cars.event.initModule();
@@ -65,8 +63,8 @@ autoControl.map = {
                     position: {lat: cars[i].Lat, lng: cars[i].Lon},
                     animation: google.maps.Animation.DROP,
                     map: autoControl.map.services.map,
-                    CarId: cars[i].CarId
-
+                    CarId: cars[i].CarId,
+                    icon: autoControl.map.data.markerImage
                 });
 
                 autoControl.map.cars.push(newMarker);
