@@ -6,7 +6,8 @@ autoControl.app = {
         progressBarIndeterminate: $('#header-progress-indeterminate'),
         progressBarDeterminate: $('#header-progress-determinate'),
         progressBarDeterminate_Bar: $('#header-progress-determinate-bar'),
-        navbar: $('#main-navbar')
+        navbar: $('#main-navbar'),
+        mainWrapper: $('#content-main')
     },
 
     state: {
@@ -33,16 +34,16 @@ autoControl.app = {
         },
 
         initAppModules: function () {
-            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule);
+            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info-wrapper");
+            autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings-wrapper");
         }
     },
 
     action: {
-        initExternalModule: function (name, initFunction) {
+        initExternalModule: function (name, initFunction, divID) {
+            autoControl.app.jqueryMap.mainWrapper.append('<div id="' + divID + '"></div>');
             //ToDo add to menu
-            //ToDo add div
-
-            initFunction();
+            initFunction(divID);
         },
 
         showProgress: function (percentage) {

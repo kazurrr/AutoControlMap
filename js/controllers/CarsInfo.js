@@ -3,13 +3,12 @@ if (!autoControl.carsInfo)
 
 autoControl.carsInfo = {
     jqueryMap: {
-        mainWrapper: $('#content-main')
+        mainWrapper: null,
     },
 
     event: {
-        initModule: function () {
-            // autoControl.carsInfo.jqueryMap.mainWrapper.append("<h1>A</h1>");
-
+        initModule: function (divID) {
+            autoControl.carsInfo.jqueryMap.mainWrapper = $('#' + divID);
         },
 
         render: function (data) {
@@ -37,7 +36,7 @@ autoControl.carsInfo = {
             }
 
             html += '   </tbody>' +
-                '</table>'
+                '</table>';;;;;
 
             autoControl.carsInfo.jqueryMap.mainWrapper.html(html);
         }
