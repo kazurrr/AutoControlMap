@@ -32,20 +32,20 @@
   {
     "CarId": 6,
     "VIN": null,
-    "Brand": null,
-    "Model": null
+    "Brand": "Marka",
+    "Model": "focus"
   },
   {
     "CarId": 7,
     "VIN": null,
-    "Brand": null,
-    "Model": null
+    "Brand": "Marka",
+    "Model": "focus"
   },
   {
     "CarId": 8,
     "VIN": null,
-    "Brand": null,
-    "Model": null
+    "Brand": "Jakaś",
+    "Model": "Marka"
   },
   {
     "CarId": 9,
@@ -62,8 +62,8 @@
   {
     "CarId": 11,
     "VIN": null,
-    "Brand": null,
-    "Model": null
+    "Brand": "Marka",
+    "Model": "Model"
   },
   {
     "CarId": 12,

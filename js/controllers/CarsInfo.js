@@ -12,8 +12,34 @@ autoControl.carsInfo = {
 
         },
 
-        render: function () {
+        render: function (data) {
+            var html = '<h5>Informacje o pojazdach</h5>' +
 
+                '<table class="bordered centered">' +
+                '   <thead>' +
+                '       <tr>' +
+                '           <th data-field="id">Numer pojazdu</th>' +
+                '           <th data-field="name">Model</th>' +
+                '           <th data-field="price">Status</th>' +
+                '           <th data-field="price">Akcje</th>' +
+                '       </tr>' +
+                '   </thead>' +
+                '   <tbody>';
+
+            for (var i = 0; i < data.length; i++) {
+                html += '   <tr>' +
+                    '           <td>' + data[i].CarId + '</td>' +
+                    '           <td>' + data[i].Brand + ' ' + data[i].Model + '</td>' +
+                    '           <td>' + data[i].Lon + '</td>' +
+                    '           <td><button onclick="autoControl.map.event.centerOnMarker(' + data[i].CarId + ')" ' +
+                    'class="btn">Pokaż</button></td>' +
+                    '       </tr>';
+            }
+
+            html += '   </tbody>' +
+                '</table>'
+
+            autoControl.carsInfo.jqueryMap.mainWrapper.html(html);
         }
     },
 

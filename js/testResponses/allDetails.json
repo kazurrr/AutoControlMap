@@ -6,8 +6,9 @@
     "Rpm": 2000.0,
     "EngineLoad": 5.6,
     "Voltage": 12.65,
-    "Lon": 78.231,
-    "Lat": 67.541
+    "Lon": 18.100513,
+    "Lat": 54.467972,
+    "CreateDate": null
   },
   {
     "DetailId": 2,
@@ -16,8 +17,9 @@
     "Rpm": 2513.0,
     "EngineLoad": 90.0,
     "Voltage": 10.94,
-    "Lon": 98.331,
-    "Lat": 98.213
+    "Lon": 18.500513,
+    "Lat": 54.567972,
+    "CreateDate": null
   },
   {
     "DetailId": 3,
@@ -26,8 +28,8 @@
     "Rpm": 1234.0,
     "EngineLoad": 23.0,
     "Voltage": 9.9,
-    "Lon": 56.901,
-    "Lat": 43.901
+    "Lon": 18.550513,
+    "Lat": 54.477972
   },
   {
     "DetailId": 4,
@@ -36,8 +38,9 @@
     "Rpm": 2569.0,
     "EngineLoad": 85.0,
     "Voltage": 13.9,
-    "Lon": 56.9,
-    "Lat": 89.001
+    "Lon": 18.670513,
+    "Lat": 54.497972,
+    "CreateDate": null
   },
   {
     "DetailId": 5,
@@ -46,8 +49,8 @@
     "Rpm": 2032.0,
     "EngineLoad": 41.0,
     "Voltage": 12.0,
-    "Lon": 32.0,
-    "Lat": 123.0
+    "Lon": 18.440513,
+    "Lat": 54.867972
   },
   {
     "DetailId": 6,
@@ -56,8 +59,9 @@
     "Rpm": 2343.0,
     "EngineLoad": 14.0,
     "Voltage": 12.1,
-    "Lon": 74.23,
-    "Lat": 83.11
+    "Lon": 18.300513,
+    "Lat": 54.867972,
+    "CreateDate": null
   },
   {
     "DetailId": 7,
@@ -66,7 +70,8 @@
     "Rpm": 2343.0,
     "EngineLoad": 14.0,
     "Voltage": 12.1,
-    "Lon": 74.23,
-    "Lat": 83.11
+    "Lon": 18.400513,
+    "Lat": 54.657972,
+    "CreateDate": null
   }
 ]
