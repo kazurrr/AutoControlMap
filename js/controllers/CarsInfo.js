@@ -3,7 +3,7 @@ if (!autoControl.carsInfo)
 
 autoControl.carsInfo = {
     jqueryMap: {
-        mainWrapper: null,
+        mainWrapper: null
     },
 
     event: {
@@ -36,7 +36,7 @@ autoControl.carsInfo = {
             }
 
             html += '   </tbody>' +
-                '</table>';;;;;
+                '</table>';
 
             autoControl.carsInfo.jqueryMap.mainWrapper.html(html);
         }

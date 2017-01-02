@@ -29,7 +29,7 @@ autoControl.map = {
             // autoControl.map.services.direction = new google.maps.DirectionsService();
             // autoControl.map.services.directionDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
             // autoControl.map.services.directionDisplay.setPanel(document.getElementById('route-display-text'));
-            // autoControl.map.services.traffic = new google.maps.TrafficLayer();
+            autoControl.map.services.traffic = new google.maps.TrafficLayer();
 
             autoControl.map.services.map = new google.maps.Map(autoControl.map.jsMap.map, {
                 center: {lat: 54.519817, lng: 18.529571},
@@ -84,7 +84,15 @@ autoControl.map = {
                 return;
 
             var latLon = marker.getPosition();
-            autoControl.map.services.map.setCenter(latLon);
+            autoControl.map.services.map.panTo(latLon);
+        },
+
+        toogleTrafficLayer: function (turnOnTraffic) {
+            if (turnOnTraffic) {
+                autoControl.map.services.traffic.setMap(autoControl.map.services.map);
+            } else {
+                autoControl.map.services.traffic.setMap(null);
+            }
         }
     }
 };
