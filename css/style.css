@@ -23,3 +23,10 @@
 .scroll-content {
     overflow: auto;
 }
+
+.btn.small {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 1rem;
+    font-size: 12px;
+}

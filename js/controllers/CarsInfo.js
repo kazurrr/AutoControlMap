@@ -28,7 +28,7 @@ autoControl.carsInfo = {
                 html += '   <tr>' +
                     '           <td>' + data[i].VIN + '</td>' +
                     '           <td>' + data[i].Brand + ' ' + data[i].Model + '</td>' +
-                    '           <td><button onclick="autoControl.map.event.centerOnMarker(' + data[i].CarId + ')" ' +
+                    '           <td><button class="btn small" onclick="autoControl.map.event.centerOnMarker(' + data[i].CarId + ')" ' +
                     'class="btn">Pokaż</button></td>' +
                     '       </tr>';
             }
