@@ -1,7 +1,7 @@
-if (!autoControl.cars)
-    autoControl.cars = {};
+if (!autoControl.carsUpdate)
+    autoControl.carsUpdate = {};
 
-autoControl.cars = {
+autoControl.carsUpdate = {
     data: [],
 
     state: {},
@@ -12,21 +12,21 @@ autoControl.cars = {
             var server_1 = 'http://91.232.102.190:8080/api/cars/getall';
             $.getJSON("js/testResponses/allCars.json", function (infoData) {
                 $.getJSON("js/testResponses/allDetails.json", function (data) {
-                    autoControl.cars.data = data;
-                    autoControl.cars.event.setAdditionalCarInfo(infoData);
-                    autoControl.map.event.updateCars(autoControl.cars.data);
+                    autoControl.carsUpdate.data = data;
+                    autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
+                    autoControl.map.event.updateCars(autoControl.carsUpdate.data);
                 });
             });
         },
 
         setAdditionalCarInfo: function (carInfo) {
-            for (var i = 0; i < autoControl.cars.data.length; i++) {
-                var info = autoControl.cars.event.getSpecifiedCarInfo(autoControl.cars.data[i].CarId, carInfo);
+            for (var i = 0; i < autoControl.carsUpdate.data.length; i++) {
+                var info = autoControl.carsUpdate.event.getSpecifiedCarInfo(autoControl.carsUpdate.data[i].CarId, carInfo);
 
                 if (info != null) {
-                    autoControl.cars.data[i].VIN = info.VIN;
-                    autoControl.cars.data[i].Brand = info.Brand;
-                    autoControl.cars.data[i].Model = info.Model;
+                    autoControl.carsUpdate.data[i].VIN = info.VIN;
+                    autoControl.carsUpdate.data[i].Brand = info.Brand;
+                    autoControl.carsUpdate.data[i].Model = info.Model;
                 }
             }
         },

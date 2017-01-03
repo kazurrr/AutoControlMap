@@ -24,6 +24,18 @@ autoControl.map = {
 
     cars: [],
 
+    carsQuery: {
+        getMarkerByCarId: function (carId) {
+            for (var i = 0; i < autoControl.map.cars.length; i++) {
+                if (autoControl.map.cars[i].CarId == carId) {
+                    return autoControl.map.cars[i];
+                }
+            }
+
+            return null;
+        }
+    },
+
     event: {
         initModule: function () {
             // autoControl.map.services.direction = new google.maps.DirectionsService();
@@ -36,7 +48,7 @@ autoControl.map = {
                 zoom: 10
             });
 
-            autoControl.cars.event.initModule();
+            autoControl.carsUpdate.event.initModule();
         },
 
         updateCars: function (data) {
@@ -72,13 +84,7 @@ autoControl.map = {
         },
 
         centerOnMarker: function (carId) {
-            var marker = null;
-            for (var i = 0; i < autoControl.map.cars.length; i++) {
-                if (autoControl.map.cars[i].CarId == carId) {
-                    marker = autoControl.map.cars[i];
-                    break;
-                }
-            }
+            var marker = autoControl.map.carsQuery.getMarkerByCarId(carId);
 
             if (marker == null)
                 return;
@@ -96,3 +102,4 @@ autoControl.map = {
         }
     }
 };
+
