@@ -21,7 +21,8 @@ autoControl.app = {
             $(window).resize(function () {
                 autoControl.app.event.resize()
             });
-            autoControl.app.event.initAppModules();
+
+            autoControl.app.event.initGUIModules();
         },
 
         resize: function () {
@@ -33,17 +34,17 @@ autoControl.app = {
             }
         },
 
-        initAppModules: function () {
-            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info-wrapper");
-            autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings-wrapper");
+        initGUIModules: function () {
+            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info");
+            autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings");
         }
     },
 
     action: {
         initExternalModule: function (name, initFunction, divID) {
-            autoControl.app.jqueryMap.mainWrapper.append('<div id="' + divID + '"></div>');
+            autoControl.app.jqueryMap.mainWrapper.append('<div id="' + divID + '-wrapper"></div>');
             //ToDo add to menu
-            initFunction(divID);
+            initFunction(divID + '-wrapper');
         },
 
         showProgress: function (percentage) {

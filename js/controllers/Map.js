@@ -15,7 +15,8 @@ autoControl.map = {
         direction: null,
         directionDisplay: null,
         traffic: null,
-        map: null
+        map: null,
+        infoWindow: null
     },
 
     data: {
@@ -49,6 +50,7 @@ autoControl.map = {
             });
 
             autoControl.carsUpdate.event.initModule();
+            autoControl.map.services.infoWindow = new google.maps.InfoWindow();
         },
 
         updateCars: function (data) {
@@ -70,16 +72,7 @@ autoControl.map = {
 
         renderCars: function (cars) {
             for (var i = 0; i < cars.length; i++) {
-
-                var newMarker = new google.maps.Marker({
-                    position: {lat: cars[i].Lat, lng: cars[i].Lon},
-                    animation: google.maps.Animation.DROP,
-                    map: autoControl.map.services.map,
-                    CarId: cars[i].CarId,
-                    icon: autoControl.map.data.markerImage
-                });
-
-                autoControl.map.cars.push(newMarker);
+                autoControl.map.cars.push(autoControl.car.newCar(cars[i]));
             }
         },
 
