@@ -34,6 +34,14 @@ autoControl.map = {
             }
 
             return null;
+        },
+
+        getCarInfoByCarId: function (carId) {
+            var car = autoControl.map.carsQuery.getMarkerByCarId(carId);
+            if (car == null)
+                return null;
+
+            return car.carInfo;
         }
     },
 

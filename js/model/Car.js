@@ -39,7 +39,7 @@ autoControl.car = {
             '       <p>Prędkość: ' + car.carInfo.Speed + 'km/h</p>' +
             '       <p>Obroty: ' + car.carInfo.Rpm + 'rpm</p>' +
             '       <p>Obciążenie silnika: ' + car.carInfo.EngineLoad + '%</p>' +
-            '       <p><a onclick="autoControl.errorModal.">Błędy pojazdu</a></p>' +
+            '       <p><a onclick="autoControl.errorModal.event.openModal(' + car.carInfo.CarId + ')">Błędy pojazdu</a></p>' +
             '   </div>' +
             '</div>';
     }

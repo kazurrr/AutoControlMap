@@ -32,8 +32,15 @@ autoControl.errorModal = {
 
         },
 
-        openModal: function () {
+        openModal: function (data) {
+            console.log('data', data);
             if (autoControl.errorModal.state.open == false) {
+                var car = autoControl.map.carsQuery.getCarInfoByCarId(data);
+
+                console.log(car);
+                console.log('bla');
+
+                autoControl.errorModal.jqueryMap.modalWindow.html(autoControl.errorModal.event.renderModal(car));
                 autoControl.errorModal.state.open = true;
                 autoControl.errorModal.event.renderModal();
                 autoControl.errorModal.jqueryMap.modalWindow.modal('open');
@@ -46,7 +53,18 @@ autoControl.errorModal = {
             autoControl.errorModal.state.open = false;
         },
 
-        renderModal: function () {
+        renderModal: function (carInfo) {
+            console.log(carInfo);
+
+            var a = '<div class="modal-content">' +
+                '   <h4>' + carInfo.Brand + ' ' + carInfo.Model + ' - ' + carInfo.VIN + '</h4>' +
+                '   <p>A bunch of text</p>' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Zamknij</a>' +
+                '</div>';
+
+            return a;
 
         }
     }
