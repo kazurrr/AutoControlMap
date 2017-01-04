@@ -7,14 +7,12 @@ autoControl.carsUpdate = {
     state: {
         refreshInterval: 5000,
         autoRefresh: true,
-        timeoutObj: null
+        timeoutObj: 0
     },
 
     event: {
 
         initModule: function () {
-            var server_1 = 'http://91.232.102.190:8080/api/cars/getall';
-
             autoControl.carsUpdate.event.getData();
             autoControl.carsUpdate.event.toogleAutoRefresh(true);
         },
@@ -36,8 +34,6 @@ autoControl.carsUpdate = {
                     autoControl.carsUpdate.data = data;
                     autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
                     autoControl.map.event.updateCars(autoControl.carsUpdate.data);
-
-                    console.log(data);
 
                     autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.getDataWithLoop,
                         autoControl.carsUpdate.state.refreshInterval);
@@ -77,10 +73,3 @@ autoControl.carsUpdate = {
         }
     }
 };
-
-function Car(id, vin, brand, model) {
-    this.id = id;
-    this.vin = vin;
-    this.brand = brand;
-    this.model = model;
-}

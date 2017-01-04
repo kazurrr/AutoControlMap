@@ -23,6 +23,7 @@ autoControl.app = {
             });
 
             autoControl.app.event.initGUIModules();
+            autoControl.errorModal.event.initModule();
         },
 
         resize: function () {
