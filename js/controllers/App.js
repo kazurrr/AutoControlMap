@@ -38,6 +38,10 @@ autoControl.app = {
         initGUIModules: function () {
             autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info");
             autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings");
+        },
+
+        showToast: function (message) {
+            Materialize.toast(message, 4000);
         }
     },
 
