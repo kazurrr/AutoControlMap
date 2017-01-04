@@ -13,13 +13,13 @@ autoControl.errorModal = {
     event: {
         initModule: function () {
             autoControl.errorModal.jqueryMap.modalWindow.modal({
-                    dismissible: false,
-                    opacity: .5, // Opacity of modal background
-                    in_duration: 300, // Transition in duration
-                    out_duration: 200, // Transition out duration
-                    starting_top: '4%', // Starting top style attribute
-                    // ending_top: '10%', // Ending top style attribute
-                    ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                    dismissible: true,
+                    opacity: .5,
+                    in_duration: 300,
+                    out_duration: 200,
+                    starting_top: '4%',
+                    // ending_top: '10%',
+                    ready: function (modal, trigger) {
                         // alert("Ready");
                         // console.log(modal, trigger);
                     },

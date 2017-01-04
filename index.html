@@ -18,10 +18,13 @@
                 <!-- ToDo dodać elementy menu mobile <li id="panel-toogle-button" class="active"><a href="#">Panel</a></li> -->
             </ul>
 
-            <ul id="nav-mobile" class="side-nav">
-                <!-- ToDo dodać elementy menu mobile -->
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <!--<ul id="nav-mobile" class="side-nav">-->
+                <!--<li>bla</li>-->
+                <!--<li>bla</li>-->
+                <!--<li><a href="mobile.html">Mobile</a></li>-->
+                <!--&lt;!&ndash; ToDo dodać elementy menu mobile &ndash;&gt;-->
+            <!--</ul>-->
+            <!--<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>-->
         </div>
 
         <div id="header-progress-indeterminate" class="progress" style="margin: 0; display: none">
@@ -67,9 +70,11 @@
 <script type="text/javascript" src="js/model/Car.js"></script>
 
 <script>
-    $(".button-collapse").sideNav();
+    $(document).ready(function () {
+        $(".button-collapse").sideNav();
+        autoControl.app.event.initModule();
+    });
 
-    autoControl.app.event.initModule();
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhiBxCyHYRmsnZlEuvNKMxLWPWic2Pb-c&callback=autoControl.map.event.initModule"
