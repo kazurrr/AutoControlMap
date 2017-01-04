@@ -61,7 +61,35 @@ autoControl.map = {
             autoControl.map.services.infoWindow = new google.maps.InfoWindow();
         },
 
-        updateCars: function (data) {
+        updateCars: function (cars) {
+            var marker;
+            var numDeltas = 100;
+            var counter = 0;
+
+            function moveMarker() {
+                position[0] += deltaLat;
+                position[1] += deltaLng;
+
+                var latlng = new google.maps.LatLng(position[0], position[1]);
+                marker.setPosition(latlng);
+
+                if (i != numDeltas) {
+                    i++;
+                    setTimeout(moveMarker, 10);
+                }
+            }
+
+            for (var i = 0; i < cars.length; i++) {
+                marker = autoControl.map.carsQuery.getMarkerByCarId(cars[i].CarId);
+                var p = marker.getPosition();
+
+                var newLatLon = new google.maps.LatLng({lat: p.lat() - 0.005, lng: p.lng()});
+
+                marker.setPosition(newLatLon);
+            }
+        },
+
+        clearCarsAndAddNew: function (data) {
             if (data == null)
                 return;
 

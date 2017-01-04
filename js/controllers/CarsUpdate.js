@@ -19,7 +19,7 @@ autoControl.carsUpdate = {
 
         toogleAutoRefresh: function (turnOn) {
             if (turnOn) {
-                autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.getDataWithLoop,
+                autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.updateDataWithLoop,
                     autoControl.carsUpdate.state.refreshInterval);
                 autoControl.carsUpdate.state.autoRefresh = true;
             } else {
@@ -28,17 +28,19 @@ autoControl.carsUpdate = {
             }
         },
 
-        getDataWithLoop: function () {
-            $.getJSON("js/testResponses/allCars.json", function (infoData) {
-                $.getJSON("js/testResponses/allDetails.json", function (data) {
-                    autoControl.carsUpdate.data = data;
-                    autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
+        updateDataWithLoop: function () {
+            $.when($.getJSON("js/testResponses/allCars.json"), $.getJSON("js/testResponses/allDetails.json"))
+                .done(function (infoData, data) {
+                    console.log('Update', infoData, data);
+
+                    autoControl.carsUpdate.data = data[0];
+                    autoControl.carsUpdate.event.setAdditionalCarInfo(infoData[0]);
+
                     autoControl.map.event.updateCars(autoControl.carsUpdate.data);
 
-                    autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.getDataWithLoop,
+                    autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.updateDataWithLoop,
                         autoControl.carsUpdate.state.refreshInterval);
                 });
-            });
         },
 
         getData: function () {
@@ -46,7 +48,7 @@ autoControl.carsUpdate = {
                 $.getJSON("js/testResponses/allDetails.json", function (data) {
                     autoControl.carsUpdate.data = data;
                     autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
-                    autoControl.map.event.updateCars(autoControl.carsUpdate.data);
+                    autoControl.map.event.clearCarsAndAddNew(autoControl.carsUpdate.data);
                 });
             });
         },
