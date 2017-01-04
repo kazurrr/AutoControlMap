@@ -4,12 +4,48 @@ if (!autoControl.carsUpdate)
 autoControl.carsUpdate = {
     data: [],
 
-    state: {},
+    state: {
+        refreshInterval: 5000,
+        autoRefresh: true,
+        timeoutObj: null
+    },
 
     event: {
 
         initModule: function () {
             var server_1 = 'http://91.232.102.190:8080/api/cars/getall';
+
+            autoControl.carsUpdate.event.getData();
+            autoControl.carsUpdate.event.toogleAutoRefresh(true);
+        },
+
+        toogleAutoRefresh: function (turnOn) {
+            if (turnOn) {
+                autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.getDataWithLoop,
+                    autoControl.carsUpdate.state.refreshInterval);
+                autoControl.carsUpdate.state.autoRefresh = true;
+            } else {
+                clearTimeout(autoControl.carsUpdate.state.timeoutObj);
+                autoControl.carsUpdate.state.autoRefresh = false;
+            }
+        },
+
+        getDataWithLoop: function () {
+            $.getJSON("js/testResponses/allCars.json", function (infoData) {
+                $.getJSON("js/testResponses/allDetails.json", function (data) {
+                    autoControl.carsUpdate.data = data;
+                    autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
+                    autoControl.map.event.updateCars(autoControl.carsUpdate.data);
+
+                    console.log(data);
+
+                    autoControl.carsUpdate.state.timeoutObj = setTimeout(autoControl.carsUpdate.event.getDataWithLoop,
+                        autoControl.carsUpdate.state.refreshInterval);
+                });
+            });
+        },
+
+        getData: function () {
             $.getJSON("js/testResponses/allCars.json", function (infoData) {
                 $.getJSON("js/testResponses/allDetails.json", function (data) {
                     autoControl.carsUpdate.data = data;

@@ -9,7 +9,7 @@ autoControl.car = {
     newCar: function (car) {
         var newMarker = new google.maps.Marker({
             position: {lat: car.Lat, lng: car.Lon},
-            animation: google.maps.Animation.DROP,
+            // animation: google.maps.Animation.DROP,
             map: autoControl.map.services.map,
             CarId: car.CarId,
             carInfo: car,
