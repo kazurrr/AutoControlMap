@@ -1,7 +1,7 @@
-if (!autoControl.errorModal)
-    autoControl.errorModal = {};
+if (!autoControl.modalWindow)
+    autoControl.modalWindow = {};
 
-autoControl.errorModal = {
+autoControl.modalWindow = {
     jqueryMap: {
         modalWindow: $('#error-modal-main')
     },
@@ -12,7 +12,7 @@ autoControl.errorModal = {
 
     event: {
         initModule: function () {
-            autoControl.errorModal.jqueryMap.modalWindow.modal({
+            autoControl.modalWindow.jqueryMap.modalWindow.modal({
                     dismissible: true,
                     opacity: .5,
                     in_duration: 300,
@@ -24,7 +24,7 @@ autoControl.errorModal = {
                         // console.log(modal, trigger);
                     },
                     complete: function () {
-                        autoControl.errorModal.event.closed();
+                        autoControl.modalWindow.event.closed();
                         // alert('Closed');
                     } // Callback for Modal close
                 }
@@ -32,18 +32,28 @@ autoControl.errorModal = {
 
         },
 
-        openModal: function (data) {
-            if (autoControl.errorModal.state.open == false) {
+        openModal: function (html) {
+            if (autoControl.modalWindow.state.open == false) {
+                autoControl.modalWindow.state.open = true;
+                autoControl.modalWindow.jqueryMap.modalWindow.html(html);
+                autoControl.modalWindow.jqueryMap.modalWindow.modal('open');
+            } else {
+                console.log('Modal is already open')
+            }
+        },
+
+        openModalWithCarErrors: function (data) {
+            if (autoControl.modalWindow.state.open == false) {
                 var car = autoControl.map.carsQuery.getCarInfoByCarId(data);
 
                 $.when(autoControl.backEnd.get.errorsForCar(car.CarId)).done(function (errors) {
                     if (errors.length == 0) {
                         autoControl.app.event.showToast("Pojazd nie posiada błędów");
                     } else {
-                        autoControl.errorModal.state.open = true;
-                        var html = autoControl.errorModal.event.renderModal(car, errors);
-                        autoControl.errorModal.jqueryMap.modalWindow.html(html);
-                        autoControl.errorModal.jqueryMap.modalWindow.modal('open');
+                        autoControl.modalWindow.state.open = true;
+                        var html = autoControl.modalWindow.event.renderModal(car, errors);
+                        autoControl.modalWindow.jqueryMap.modalWindow.html(html);
+                        autoControl.modalWindow.jqueryMap.modalWindow.modal('open');
                     }
                 })
             } else {
@@ -52,7 +62,7 @@ autoControl.errorModal = {
         },
 
         closed: function () {
-            autoControl.errorModal.state.open = false;
+            autoControl.modalWindow.state.open = false;
         },
 
         renderModal: function (carInfo, errors) {
