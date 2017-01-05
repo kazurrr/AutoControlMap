@@ -47,9 +47,6 @@ autoControl.map = {
 
     event: {
         initModule: function () {
-            // autoControl.map.services.direction = new google.maps.DirectionsService();
-            // autoControl.map.services.directionDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-            // autoControl.map.services.directionDisplay.setPanel(document.getElementById('route-display-text'));
             autoControl.map.services.traffic = new google.maps.TrafficLayer();
 
             autoControl.map.services.map = new google.maps.Map(autoControl.map.jsMap.map, {
@@ -63,9 +60,13 @@ autoControl.map = {
 
         updateCars: function (cars) {
             for (var i = 0; i < cars.length; i++) {
+                var max = 10;
+                var latChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
+                var lngChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
+
                 marker = autoControl.map.carsQuery.getMarkerByCarId(cars[i].CarId);
                 var p = marker.getPosition();
-                var newLatLon = new google.maps.LatLng({lat: p.lat() - 0.005, lng: p.lng()});
+                var newLatLon = new google.maps.LatLng({lat: p.lat() - latChange, lng: p.lng() - lngChange});
 
                 MoveMarker(marker, newLatLon);
             }
