@@ -12,7 +12,7 @@ autoControl.map = {
     },
 
     services: {
-        direction: null,
+        route: null,
         directionDisplay: null,
         traffic: null,
         map: null,

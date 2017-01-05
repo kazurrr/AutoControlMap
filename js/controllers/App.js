@@ -37,7 +37,7 @@ autoControl.app = {
 
         initGUIModules: function () {
             autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info");
-            autoControl.app.action.initExternalModule("Direction", autoControl.direction.event.initModule, "map-direction");
+            autoControl.app.action.initExternalModule("Direction", autoControl.route.event.initModule, "map-route");
             autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings");
         },
 

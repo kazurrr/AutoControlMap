@@ -31,8 +31,6 @@ autoControl.carsUpdate = {
         updateDataWithLoop: function () {
             $.when($.getJSON("js/testResponses/allCars.json"), $.getJSON("js/testResponses/allDetails.json"))
                 .done(function (infoData, data) {
-                    console.log('Update', infoData, data);
-
                     autoControl.carsUpdate.data = data[0];
                     autoControl.carsUpdate.event.setAdditionalCarInfo(infoData[0]);
 
@@ -50,7 +48,7 @@ autoControl.carsUpdate = {
                     autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
                     autoControl.map.event.clearCarsAndAddNew(autoControl.carsUpdate.data);
 
-                    autoControl.direction.event.renderModule();
+                    autoControl.route.event.renderModule();
                 });
             });
         },
