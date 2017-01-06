@@ -58,8 +58,13 @@ autoControl.map = {
                 }
             });
 
-            autoControl.carsUpdate.event.initModule();
-            autoControl.map.services.infoWindow = new google.maps.InfoWindow();
+            if (!autoControl.settings.state.initialized) {
+                setTimeout(function () {
+                    autoControl.carsUpdate.event.initModule();
+                    autoControl.map.services.infoWindow = new google.maps.InfoWindow();
+                }, 1000);
+            }
+
         },
 
         updateCars: function (cars) {

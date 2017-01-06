@@ -51,8 +51,6 @@ autoControl.app = {
 
     action: {
         initExternalModule: function (name, icon, initFunction, divID) {
-            console.log(name, initFunction, divID);
-
             var html = '<li>' +
                 '   <div class="collapsible-header"><i class="material-icons">' + icon + '</i>' + name + '</div>' +
                 '   <div id="' + divID + '-wrapper" class="collapsible-body"></div>' +

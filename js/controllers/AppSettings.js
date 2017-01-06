@@ -2,6 +2,10 @@ if (!autoControl.settings)
     autoControl.settings = {};
 
 autoControl.settings = {
+    state: {
+        initialized: false
+    },
+
     jqueryMap: {
         mainWrapper: null,
         trafficSwitch: null,
@@ -18,7 +22,10 @@ autoControl.settings = {
             autoControl.settings.jqueryMap.autoRefreshSwitch = $('#settings-autorefresh-switch');
             autoControl.settings.jqueryMap.randomPosition = $('#settings-random-position-switch');
 
+            autoControl.backEnd.event.connectToBackEnd();
+
             autoControl.settings.event.bindEvents();
+            autoControl.settings.state.initialized = true;
         },
 
         bindEvents: function () {
@@ -34,6 +41,13 @@ autoControl.settings = {
                 autoControl.settings.jqueryMap.randomPosition.prop('disabled', !switchValue);
             });
 
+            autoControl.settings.jqueryMap.randomPosition.change(function () {
+                var mockDataOn = autoControl.settings.jqueryMap.randomPosition[0].checked;
+
+                if (!mockDataOn) {
+                    autoControl.backEnd.event.connectToBackEnd();
+                }
+            });
         },
 
         renderHTML: function () {
@@ -72,13 +86,13 @@ autoControl.settings = {
 
             html += '<div class="row">' +
                 '   <div class="col s6">' +
-                '       Losuj nową pozycję' +
+                '       Mock data' +
                 '   </div>' +
                 '   <div class="col s6 right-align">' +
                 '       <div class="switch">' +
                 '           <label>' +
                 '               Off' +
-                '               <input id="settings-random-position-switch" type="checkbox" checked>' +
+                '               <input id="settings-random-position-switch" type="checkbox">' +
                 '               <span class="lever"></span>' +
                 '               On' +
                 '           </label>' +
