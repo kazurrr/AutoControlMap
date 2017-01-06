@@ -78,7 +78,7 @@ autoControl.settings = {
                 '       <div class="switch">' +
                 '           <label>' +
                 '               Off' +
-                '               <input id="settings-random-position-switch" type="checkbox">' +
+                '               <input id="settings-random-position-switch" type="checkbox" checked>' +
                 '               <span class="lever"></span>' +
                 '               On' +
                 '           </label>' +

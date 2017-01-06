@@ -31,7 +31,10 @@ autoControl.app = {
             var elementsToChange = document.getElementsByClassName('height-full');
 
             for (var i = 0; i < elementsToChange.length; i++) {
-                elementsToChange[i].style.height = window.innerHeight - navbar_height + "px";
+                if (elementsToChange[i].id == 'content-wrapper')
+                    elementsToChange[i].style.maxHeight = window.innerHeight - navbar_height + "px";
+                else
+                    elementsToChange[i].style.height = window.innerHeight - navbar_height + "px";
             }
         },
 
