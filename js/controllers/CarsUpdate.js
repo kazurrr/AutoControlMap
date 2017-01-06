@@ -47,6 +47,7 @@ autoControl.carsUpdate = {
                     autoControl.carsUpdate.data = data;
                     autoControl.carsUpdate.event.setAdditionalCarInfo(infoData);
                     autoControl.map.event.clearCarsAndAddNew(autoControl.carsUpdate.data);
+                    autoControl.map.event.zoomMapToFitAllCars();
 
                     autoControl.route.event.renderModule();
                 });

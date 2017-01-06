@@ -51,7 +51,11 @@ autoControl.map = {
 
             autoControl.map.services.map = new google.maps.Map(autoControl.map.jsMap.map, {
                 center: {lat: 54.519817, lng: 18.529571},
-                zoom: 10
+                zoom: 10,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.RIGHT_TOP
+                }
             });
 
             autoControl.carsUpdate.event.initModule();
@@ -87,6 +91,14 @@ autoControl.map = {
             autoControl.carsInfo.event.render(data);
         },
 
+        zoomMapToFitAllCars: function () {
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0; i < autoControl.map.cars.length; i++) {
+                bounds.extend(autoControl.map.cars[i].getPosition());
+            }
+            autoControl.map.services.map.fitBounds(bounds);
+        },
+
         removeCars: function () {
             for (var i = 0; i < autoControl.map.cars.length; i++) {
                 autoControl.map.cars[i].setMap(null);
@@ -109,6 +121,12 @@ autoControl.map = {
 
             var latLon = marker.getPosition();
             autoControl.map.services.map.panTo(latLon);
+
+            autoControl.map.services.infoWindow.setContent(autoControl.car.renderInfoContent(marker));
+            autoControl.map.services.infoWindow.open(
+                autoControl.map.services.map,
+                marker
+            );
         },
 
         toogleTrafficLayer: function (turnOnTraffic) {

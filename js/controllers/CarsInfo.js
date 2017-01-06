@@ -12,29 +12,27 @@ autoControl.carsInfo = {
         },
 
         render: function (data) {
-            var html = '<table class="bordered centered">' +
-                '   <thead>' +
-                '       <tr>' +
-                '           <th data-field="id">VIN</th>' +
-                '           <th data-field="name">Model</th>' +
-                '           <th data-field="price">Akcje</th>' +
-                '       </tr>' +
-                '   </thead>' +
-                '   <tbody>';
+            var html = '<ul class="collection">';
 
             for (var i = 0; i < data.length; i++) {
-                html += '   <tr>' +
-                    '           <td>' + data[i].VIN + '</td>' +
-                    '           <td>' + data[i].Brand + ' ' + data[i].Model + '</td>' +
-                    '           <td><button class="btn small" onclick="autoControl.map.event.centerOnMarker(' + data[i].CarId + ')" ' +
-                    'class="btn">Pokaż</button></td>' +
-                    '       </tr>';
+                html += '<li class="collection-item">' +
+                    data[i].Brand + ' ' + data[i].Model + ' - ' + data[i].VIN +
+
+                    '<a class="secondary-content tooltipped" data-position="top" data-delay="50" data-tooltip="Pokaż na mapie"' +
+                    '   onclick="autoControl.map.event.centerOnMarker(' + data[i].CarId + ')">' +
+                    '   <i class="material-icons">my_location</i>' +
+                    '</a>' +
+
+                    '<a class="secondary-content tooltipped" data-position="top" data-delay="50" data-tooltip="Błędy pojazdu"' +
+                    '   onclick="autoControl.modalWindow.event.openModalWithCarErrors(' + data[i].CarId + ')">' +
+                    '   <i class="material-icons">error</i>' +
+                    '</a>';
             }
 
-            html += '   </tbody>' +
-                '</table>';
+            html += '</ul>';
 
             autoControl.carsInfo.jqueryMap.mainWrapper.html(html);
+            $('.tooltipped').tooltip({delay: 50});
         }
     }
 };
