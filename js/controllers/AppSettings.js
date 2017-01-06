@@ -42,7 +42,7 @@ autoControl.settings = {
                 '   <div class="col s6">' +
                 '       Natężenie ruchu' +
                 '   </div>' +
-                '   <div class="col s6">' +
+                '   <div class="col s6 right-align">' +
                 '       <div class="switch">' +
                 '           <label>' +
                 '               Off' +
@@ -58,7 +58,7 @@ autoControl.settings = {
                 '   <div class="col s6">' +
                 '       Automatyczne odświeżanie' +
                 '   </div>' +
-                '   <div class="col s6">' +
+                '   <div class="col s6 right-align">' +
                 '       <div class="switch">' +
                 '           <label>' +
                 '               Off' +
@@ -74,7 +74,7 @@ autoControl.settings = {
                 '   <div class="col s6">' +
                 '       Losuj nową pozycję' +
                 '   </div>' +
-                '   <div class="col s6">' +
+                '   <div class="col s6 right-align">' +
                 '       <div class="switch">' +
                 '           <label>' +
                 '               Off' +

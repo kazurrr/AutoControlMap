@@ -45,3 +45,6 @@
     position: fixed;
 }
 
+.collapsible-header {
+    border-left: 3px #455a64 solid;
+}
