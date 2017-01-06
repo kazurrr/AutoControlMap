@@ -37,7 +37,7 @@ autoControl.settings = {
         },
 
         renderHTML: function () {
-            var html = '<h5>Ustawienia</h5>' +
+            var html = '' +
                 '<div class="row">' +
                 '   <div class="col s6">' +
                 '       Natężenie ruchu' +

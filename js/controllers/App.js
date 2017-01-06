@@ -36,9 +36,9 @@ autoControl.app = {
         },
 
         initGUIModules: function () {
-            autoControl.app.action.initExternalModule("CarsInfo", autoControl.carsInfo.event.initModule, "car-info");
-            autoControl.app.action.initExternalModule("Direction", autoControl.route.event.initModule, "map-route");
-            autoControl.app.action.initExternalModule("Settings", autoControl.settings.event.initModule, "settings");
+            autoControl.app.action.initExternalModule("Pojazdy", 'info_outline', autoControl.carsInfo.event.initModule, "car-info");
+            autoControl.app.action.initExternalModule("Trasa", 'navigation', autoControl.route.event.initModule, "map-route");
+            autoControl.app.action.initExternalModule("Ustawienia", 'settings', autoControl.settings.event.initModule, "settings");
         },
 
         showToast: function (message) {
@@ -47,8 +47,16 @@ autoControl.app = {
     },
 
     action: {
-        initExternalModule: function (name, initFunction, divID) {
-            autoControl.app.jqueryMap.mainWrapper.append('<div id="' + divID + '-wrapper"></div>');
+        initExternalModule: function (name, icon, initFunction, divID) {
+            console.log(name, initFunction, divID);
+
+            var html = '<li>' +
+                '   <div class="collapsible-header"><i class="material-icons">' + icon + '</i>' + name + '</div>' +
+                '   <div id="' + divID + '-wrapper" class="collapsible-body"></div>' +
+                '</li>';
+
+            autoControl.app.jqueryMap.mainWrapper.append(html);
+
             //ToDo add to menu
             initFunction(divID + '-wrapper');
         },

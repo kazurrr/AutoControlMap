@@ -51,7 +51,7 @@ autoControl.route = {
         },
 
         renderHTML: function () {
-            return '<h5>Wyszukaj trasę</h5>' +
+            return '' +
                 '<form action="#">' +
                 '<div class="route-from-wrapper">' +
                 '   <input name="route-from-marker-type" checked type="radio" id="route-from-marker"/>' +

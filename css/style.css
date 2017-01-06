@@ -11,7 +11,7 @@
     transition: width 0.4s;
 }
 
-#map-wrapper, #content-main {
+#map-wrapper {
     min-height: 200px;
 }
 
@@ -34,3 +34,14 @@
 .route-input-wrapper {
     margin-bottom: 15px;
 }
+
+.collapsible-body {
+    padding: 15px 10px;
+    background-color: #ffffff;
+}
+
+#content-wrapper {
+    background-color: transparent;
+    position: fixed;
+}
+
