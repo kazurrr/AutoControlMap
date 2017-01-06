@@ -48,7 +48,9 @@ autoControl.settings = {
                     autoControl.backEnd.event.connectToBackEnd();
                 }
 
-                autoControl.carsUpdate.event.getData();
+                if (mockDataOn != autoControl.settings.jqueryMap.randomPosition[0].checked) {
+                    autoControl.carsUpdate.event.getData();
+                }
             });
         },
 
