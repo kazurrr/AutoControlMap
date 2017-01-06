@@ -38,7 +38,7 @@
     "Rpm": 2569.0,
     "EngineLoad": 85.0,
     "Voltage": 13.9,
-    "Lon": 18.670513,
+    "Lon": 18.370513,
     "Lat": 54.497972,
     "CreateDate": null
   },
@@ -50,7 +50,7 @@
     "EngineLoad": 14.0,
     "Voltage": 12.1,
     "Lon": 18.300513,
-    "Lat": 54.867972,
+    "Lat": 54.707972,
     "CreateDate": null
   }
 ]

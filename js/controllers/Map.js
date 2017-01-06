@@ -60,13 +60,19 @@ autoControl.map = {
 
         updateCars: function (cars) {
             for (var i = 0; i < cars.length; i++) {
-                var max = 10;
-                var latChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
-                var lngChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
+                var randomPosition = autoControl.settings.jqueryMap.randomPosition[0].checked;
 
-                marker = autoControl.map.carsQuery.getMarkerByCarId(cars[i].CarId);
+                var marker = autoControl.map.carsQuery.getMarkerByCarId(cars[i].CarId);
                 var p = marker.getPosition();
-                var newLatLon = new google.maps.LatLng({lat: p.lat() - latChange, lng: p.lng() - lngChange});
+                var newLatLon = new google.maps.LatLng({lat: cars[i].Lat, lng: cars[i].Lon});
+
+                if (randomPosition) {
+                    var max = 10;
+                    var latChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
+                    var lngChange = Math.floor((Math.random() * max) + 1 - max / 2) / 1000;
+
+                    newLatLon = new google.maps.LatLng({lat: p.lat() - latChange, lng: p.lng() - lngChange});
+                }
 
                 MoveMarker(marker, newLatLon);
             }

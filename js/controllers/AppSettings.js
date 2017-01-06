@@ -5,7 +5,8 @@ autoControl.settings = {
     jqueryMap: {
         mainWrapper: null,
         trafficSwitch: null,
-        autoRefreshSwitch: null
+        autoRefreshSwitch: null,
+        randomPosition: null
     },
 
     event: {
@@ -15,6 +16,7 @@ autoControl.settings = {
 
             autoControl.settings.jqueryMap.trafficSwitch = $('#traffic-layer-switch');
             autoControl.settings.jqueryMap.autoRefreshSwitch = $('#settings-autorefresh-switch');
+            autoControl.settings.jqueryMap.randomPosition = $('#settings-random-position-switch');
 
             autoControl.settings.event.bindEvents();
         },
@@ -28,6 +30,8 @@ autoControl.settings = {
             autoControl.settings.jqueryMap.autoRefreshSwitch.change(function () {
                 var switchValue = autoControl.settings.jqueryMap.autoRefreshSwitch[0].checked;
                 autoControl.carsUpdate.event.toogleAutoRefresh(switchValue);
+
+                autoControl.settings.jqueryMap.randomPosition.prop('disabled', !switchValue);
             });
 
         },
@@ -59,6 +63,22 @@ autoControl.settings = {
                 '           <label>' +
                 '               Off' +
                 '               <input id="settings-autorefresh-switch" type="checkbox" checked>' +
+                '               <span class="lever"></span>' +
+                '               On' +
+                '           </label>' +
+                '       </div>' +
+                '   </div>' +
+                '</div>';
+
+            html += '<div class="row">' +
+                '   <div class="col s6">' +
+                '       Losuj nową pozycję' +
+                '   </div>' +
+                '   <div class="col s6">' +
+                '       <div class="switch">' +
+                '           <label>' +
+                '               Off' +
+                '               <input id="settings-random-position-switch" type="checkbox">' +
                 '               <span class="lever"></span>' +
                 '               On' +
                 '           </label>' +
