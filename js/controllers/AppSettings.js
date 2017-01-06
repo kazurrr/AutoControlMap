@@ -47,6 +47,8 @@ autoControl.settings = {
                 if (!mockDataOn) {
                     autoControl.backEnd.event.connectToBackEnd();
                 }
+
+                autoControl.carsUpdate.event.getData();
             });
         },
 
