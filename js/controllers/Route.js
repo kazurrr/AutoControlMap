@@ -175,6 +175,9 @@ autoControl.route = {
                 return autoControl.map.carsQuery.getMarkerByCarId(inputValue).getPosition();
             } else if (currentType.attr('id').includes('search')) {
                 //ToDo address validation
+                if (inputValue == '')
+                    return null;
+
                 return inputValue
             } else {
                 console.log(3);
