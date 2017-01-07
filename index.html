@@ -62,9 +62,12 @@
 
 <script>
     $(document).ready(function () {
-        $.when($(".button-collapse").sideNav, autoControl.app.event.initModule()).done(function () {
-            autoControl.app.action.hideProgressIndeterminate();
-        });
+        setTimeout(function () {
+            $.when($(".button-collapse").sideNav, autoControl.app.event.initModule()).done(function () {
+                autoControl.app.action.hideProgressIndeterminate();
+            });
+        }, 500);
+
 
     });
 

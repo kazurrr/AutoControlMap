@@ -38,6 +38,7 @@ autoControl.route = {
 
         renderModule: function () {
             autoControl.route.jqueryMap.mainWrapper.html(autoControl.route.event.renderHTML());
+            $('select').material_select();
 
             autoControl.route.jqueryMap.fromWrapper = $('#route-from-input-wrapper');
             autoControl.route.jqueryMap.toWrapper = $('#route-to-input-wrapper');
@@ -124,6 +125,7 @@ autoControl.route = {
 
             if (data.currentTarget.id.includes('marker')) {
                 wrapper.innerHTML = autoControl.route.render.marker(positionLabel, positionDescription);
+                $('#route-' + positionLabel + '-input').material_select();
             } else if (data.currentTarget.id.includes('search')) {
                 wrapper.innerHTML = autoControl.route.render.search(positionLabel, positionDescription);
             } else {
@@ -189,7 +191,7 @@ autoControl.route = {
         marker: function (place, label) {
             var allCars = autoControl.map.cars;
 
-            var toReturn = '<select class="browser-default" id="route-' + place + '-input">' +
+            var toReturn = '<select id="route-' + place + '-input">' +
                 '   <option value="" disabled selected>' + label + '</option>';
 
             for (var i = 0; i < allCars.length; i++) {

@@ -62,7 +62,7 @@ autoControl.map = {
                 setTimeout(function () {
                     autoControl.carsUpdate.event.initModule();
                     autoControl.map.services.infoWindow = new google.maps.InfoWindow();
-                }, 1000);
+                }, 3000);
             }
 
         },
